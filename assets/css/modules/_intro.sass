@@ -1,0 +1,230 @@
+.intro
+  position: relative
+  display: flex
+  width: 900px
+  max-width: 75%
+  height: 100%
+  flex-direction: column
+  justify-content: center
+  margin: 0 auto
+  &--star
+    position: absolute
+    width: 4px
+    height: 4px
+    background: #00d7e5
+    border-radius: 50%
+    box-shadow: 0 0 0 4px rgba(255,255,255,.1),0 0 0 8px rgba(255,255,255,.1),0 0 20px #4e95e0
+    top: -10%
+    left: 30%
+    z-index: -1
+    &--active
+      visibility: visible
+      animation-name: stars
+      animation-timing-function: linear
+    &-one
+      top: -10%
+      left: 50%
+      animation-duration: 1s
+    &-two
+      top: -10%
+      left: 70%
+      animation-duration: 1.5s
+    &-three
+      top: -10%
+      left: 90%
+      animation-duration: 2s
+    &-four
+      top: -10%
+      left: 20%
+      animation-duration: 2.5s
+    &:before
+      content: ''
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      width: 250px
+      height: 1px
+      background: linear-gradient(90deg,#fff,transparent)   
+  @media (max-width: 1180px)
+    max-width: 100%
+
+  &--banner
+    position: relative
+    height: 475px
+    display: flex
+    flex-direction: column
+   
+    &-images
+      position: relative
+      width: 100%
+      height: 100%
+      margin: 0 auto
+      img
+        position: absolute
+        width: 100%
+        height: 100%
+        object-fit: contain
+        
+        &.ellipse_one
+            animation-name: rotation
+            animation-duration: 5s
+            animation-iteration-count: infinite
+            animation-timing-function: linear
+            left: 50%
+            right: 50%
+            top: 50%
+
+        &.triangle
+            top: 50%
+            left: 50%
+            right: 50%
+            animation-name: move
+            animation-duration: 2s
+            animation-iteration-count: infinite
+            animation-timing-function: linear
+            animation-direction: alternate
+        &.fox
+            top: 50%
+            left: 50%
+            right: 50%
+            animation-name: move_fox
+            animation-duration: 2s
+            animation-iteration-count: infinite
+            animation-timing-function: linear
+            animation-direction: alternate     
+            border-radius: 100%
+            overflow: hidden
+            max-width: 320px
+            max-height: 320px;
+
+    h1
+      position: relative
+      text-align: center
+      line-height: 1
+      z-index: 1
+      font-family: "Skinz"
+      letter-spacing: 0.5em
+      color: $blue
+      text-shadow: 0px 0px 10px #0094ffa8
+    button
+      position: relative
+      padding: 5px 17px 5px 12px
+      font-weight: 700
+      text-transform: uppercase
+      background-color: transparent
+      border: none
+      margin: 0 auto
+
+      .btn-background
+        position: absolute
+        top: 0
+        left: 23px
+        right: 0
+        height: 100%
+        background: $btnGradient
+        background-size: 200% 200%
+        animation: gradient 5s ease infinite
+        z-index: -1
+        transition: left .2s ease-in-out
+
+      &:hover
+        .btn-background
+          left: 0
+
+      &:focus
+        outline: none
+
+      svg
+        position: relative
+        left: 5px
+        width: 15px
+        fill: $white
+
+  &--options
+    display: flex
+    justify-content: space-between
+    margin: 0
+    padding: 0
+    list-style: none
+
+    & > a
+      max-width: 250px
+      text-decoration: none
+      color: $muted-gray
+      transition: color .2s ease-in-out
+
+      &:hover
+        color: $white
+
+    h3
+      font-size: 16px
+      text-transform: uppercase
+
+    p
+      margin-bottom: 0
+
+@media (max-width: 900px)
+
+  .intro
+
+    &--banner
+      height: 380px
+
+
+      img
+        width: 430px
+        &.fox
+          max-width: 50%
+          max-height: 80%
+    &--options
+
+      & > a
+        margin-right: 30px
+
+        &:last-child
+          margin-right: 0
+
+            
+@media (max-width: 767px)
+
+  .intro
+
+    &--banner
+      height: 305px
+
+
+      img
+        width: 330px
+
+    &--options
+      display: block
+
+      & > a
+        display: block
+        max-width: 100%
+        margin: 0 0 30px 0
+
+        &:last-child
+          margin-bottom: 0
+
+@media (max-width: 600px)
+
+  .intro
+
+    &--banner
+      height: 360px
+      h1
+        @include adaptiv-value('font-size', 36, 16, 1)
+      img
+        &.fox
+          max-width: 250px
+          max-height: 250px
+     
+
+@media (max-height: 360px)
+
+  .intro
+
+    &--banner
+      padding: 15px 0
+
