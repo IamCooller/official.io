@@ -1131,6 +1131,9 @@ body {
 
 .work--lockup .slider--item-image img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
 }
 
 .work--lockup .slider--item-left {
@@ -1690,6 +1693,7 @@ body {
   background: none;
   -webkit-transition: .3s all;
   transition: .3s all;
+  border: 1px solid #fff0;
 }
 
 .work-request button[type="submit"]::before {
@@ -1706,6 +1710,7 @@ body {
 }
 
 .work-request button[type="submit"]:hover {
+  border-color: #0e7bc3;
   letter-spacing: .5rem;
 }
 
@@ -1829,6 +1834,7 @@ body {
   border: none;
   border-bottom: 1px solid #fff;
   border-radius: 0;
+  font-size: 1rem;
 }
 
 .work-request--information input[type="text"]:focus,
