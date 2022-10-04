@@ -341,7 +341,7 @@
 
 
                                 <!-- checkout formspree.io for easy form setup -->
-                                <form class="work-request">
+                                <form id="my-form" class="work-request" action="https://formspree.io/f/xzbwgkoj" method="POST">
 
                                     <div class="work-request--information">
                                         <div class="information-name">
@@ -357,9 +357,43 @@
                                             <label for="subject">Message</label>
                                         </div>
                                     </div>
-                                    <button type="submit">Send</button>
+                                     <p id="my-form-status"></p>
+                                    <button id="my-form-button" type="submit">Send</button>
                                 </form>
-
+ 
+<!-- Place this script at the end of the body tag -->
+<script>
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
                                 <ul class="hire-contacts">
                                     <li><a href="mailto:mohovilya2000@gmail.com"><span data-svg="assets/img/email.svg"></span></a></li>
                                     <li><a href="tel:+8255583412"><span data-svg="assets/img/telephone-phone.svg"></span></a></li>
