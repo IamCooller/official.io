@@ -14,40 +14,49 @@ $blue: #0094ff
 $purple: #800080
 $btnGradient: linear-gradient(-45deg, #48a8a9, #0473c8, #0094ff)
 $btnGradientHover: linear-gradient(0deg, #48a8a9, #0473c8, #0094ff)
-@-webkit-keyframes rotation
-    from
-        transform: translate(-50%, -50%) rotate(0deg)
-    to
-        transform: translate(-50%, -50%) rotate(360deg)
 
-@-webkit-keyframes move
-    from
-        transform: translate(-50%, -55%) rotate(0deg)
-    to
-        transform: translate(-50%, -50%) rotate(0deg)
-    
-@-webkit-keyframes move_fox
-    from
-        transform: translate(-50%, -50%) rotate(0deg)
+@keyframes rotation
+	from
+		transform: translate(-50%, -50%) rotate(0deg)
 
-    to
-        transform: translate(-50%, -55%) rotate(0deg)
+	to
+		transform: translate(-50%, -50%) rotate(360deg)
 
-@-webkit-keyframes gradient
+@keyframes move
+	from
+		transform: translate(-50%, -55%) rotate(0deg)
+
+	to
+		transform: translate(-50%, -50%) rotate(0deg)
+
+
+@keyframes move_fox
+	from
+		transform: translate(-50%, -50%) rotate(0deg)
+
+	to
+		transform: translate(-50%, -55%) rotate(0deg)
+
+
+@keyframes stars
+	0%
+		transform: rotate(-45deg) translateX(0)
+
+	70%
+		opacity: 1
+
+	100%
+		transform: rotate(-45deg) translateX(-50vh)
+		opacity: 0
+
+
+@keyframes gradient
 	0%
 		background-position: 0% 50%
+
 	50%
 		background-position: 100% 50%
+
 	100%
 		background-position: 0% 50%
 
-@-webkit-keyframes stars
-    0%
-        transform: rotate(-45deg) translateX(0)
-    70%
-        opacity: 1
-    
-    100%
-        transform: rotate(-45deg) translateX(-50vh)
-        opacity: 0
-    
